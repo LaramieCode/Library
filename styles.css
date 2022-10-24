@@ -7,6 +7,8 @@
     --zinc-300: #d4d4d8;
     --zinc-600: #52525b;
     --zinc-800: #27272a;
+    --green-600: #16a34a;
+    --red-600: #dc2626;
 }
 
 .main {
@@ -43,14 +45,16 @@
 }
 
 .bookCard {
-    height: 250px;
-    width: 230px;
+    height: 252px;
+    width: 222px;
     background-color: var(--zinc-800);
     border-radius: 20px;
     margin: auto;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    border-left: 8px solid var(--zinc-800);
+    border-right: 8px solid var(--zinc-800);
 }
 
 .bookCard > h1 {
@@ -60,4 +64,12 @@
 .bookCard > * {
     color: var(--zinc-300);
     text-align: center;
+}
+
+.bookHasRead {
+    border-left: 8px solid var(--green-600);
+}
+
+.bookHasNotRead {
+    border-left: 8px solid var(--red-600);
 }
