@@ -6,9 +6,16 @@
 :root {
     --zinc-300: #d4d4d8;
     --zinc-600: #52525b;
+    --zinc-700: #3f3f46;
     --zinc-800: #27272a;
+    --zinc-900: #18181b;
+    --green-500: #22c55e;
     --green-600: #16a34a;
+    --green-700: #15803d;
+    --green-800: #166534;
+    --green-900: #14532d;
     --red-600: #dc2626;
+    --form-row-height: 60px;
 }
 
 .main {
@@ -28,7 +35,8 @@
 }
 
 .libraryHeader {
-    height: 10%;
+    min-height: 90px;
+    /* height: 10%; */
     width: 100%;
     background-color: var(--zinc-800);
     display: flex;
@@ -36,6 +44,28 @@
     align-items: center;
     color: var(--zinc-300);
     font-size: 2em;
+    position: relative;
+}
+
+.addBook {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: var(--green-600);
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--green-700);
+    color: var(--green-800);
+    font-size: 1.3em;
+}
+
+.addBook:active {
+    color: var(--green-900);
+    background-color: var(--green-700);
+    border: 2px solid var(--green-800);
 }
 
 .libraryContent {
@@ -72,4 +102,137 @@
 
 .bookHasNotRead {
     border-left: 8px solid var(--red-600);
+}
+
+.formContainer {
+    height: 100%;
+    width: 50%;
+    padding: 0 25%;
+}
+
+.addBookForm {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.formRows.bookTitle,
+.formRows.bookAuthor {
+    height: var(--form-row-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titleLabel,
+.authorLabel {
+    color: var(--zinc-300);
+    font-size: 1.75em;
+    /* margin-left: 25%; */
+}
+
+.titleInput,
+.authorInput {
+    height: 45px;
+    width: 300px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--zinc-700);
+    /* margin-right: 25%; */
+}
+
+.rowThree {
+    width: 100%;
+    height: var(--form-row-height);
+    display: flex;
+}
+
+.bookPages {
+    width: 50%;
+    height: var(--form-row-height);
+}
+
+.bookPages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagesLabel {
+    color: var(--zinc-300);
+    font-size: 1.5em;
+    height: 30px;
+}
+
+.pagesInput {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--zinc-700);
+}
+
+.bookRead {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.readQ {
+    height: 30px;
+    color: var(--zinc-300);
+    font-size: 1.25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.readA {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: var(--zinc-700);
+    border-radius: 20px;
+    width: 100px;
+    color: var(--zinc-300);
+}
+
+.addBookBtnContainer {
+    height: var(--form-row-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addBookBtn {
+    height: 45px;
+    width: 180px;
+    border: 2px solid var(--green-700);
+    border-radius: 20px;
+    background-color: var(--green-600);
+    color: var(--green-800);
+}
+
+.addBookBtn:active {
+    border: 2px solid var(--green-800);
+    background-color: var(--green-700);
+    color: var(--green-900);
+}
+
+
+
+
+
+
+
+
+
+/* Keep at bottom */
+.dontDisplay {
+    display: none;
 }

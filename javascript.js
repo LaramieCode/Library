@@ -1,4 +1,6 @@
 let libraryContent = document.querySelector(".libraryContent");
+const addBookBtn = document.querySelector(".addBook");
+const bookFormContainer = document.querySelector(".formContainer")
 
 let myLibrary = [];
 
@@ -43,6 +45,11 @@ function addBookToPage() {
         }        
     });
 };
+
+addBookBtn.addEventListener("click", function() {
+    bookFormContainer.classList.toggle("dontDisplay")
+    libraryContent.classList.toggle("dontDisplay")
+})
 
 addBookToLibrary("The Hobbit", "J.R.R Tolkien", 296, true);
 

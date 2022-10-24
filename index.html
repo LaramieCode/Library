@@ -11,14 +11,62 @@
 <body>
 
     <div class="main">
+
         <div class="libraryContainer">
+
             <div class="libraryHeader">
                 <h1>My Library</h1>
+                <button class="addBook">
+                    <p>+</p>
+                </button>
             </div>
-            <div class="libraryContent">
+            <div class="libraryContent"></div>
+
+            <div class="formContainer dontDisplay">
+                
+                <form class="addBookForm">
+
+                    <div class="formRows bookTitle">
+                        <label for="bookTitle" class="titleLabel">Title:</label>
+                        <input type="text" name="bookTitle" class="titleInput">
+                    </div>
+
+                    <div class="formRows bookAuthor">
+                        <label for="bookAuthor" class="authorLabel">Author:</label>
+                        <input type="text" name="bookAuthor" class="authorInput">
+                    </div>
+
+                    <div class="rowThree">
+                        <div class="bookPages">
+                            <label for="bookPages" class="pagesLabel">Pages:</label>
+                            <input type="number" name="bookPages" class="pagesInput">
+                        </div>
+
+                        <div class="bookRead">
+                            <p class="readQ">Have you read this?</p>
+                            <div class="readA">
+                                <label for="bookRead">Yes</label>
+                                <input type="radio" name="bookRead">
+
+                                <label for="bookRead">No</label>
+                                <input type="radio" name="bookRead">
+                            </div>
+                        </div>
+
+                    </div>
+
+                <div class="addBookBtnContainer">
+                    <button type="submit" class="addBookBtn">Add Book!</button>
+                </div>
+
+                </form>
+
             </div>
+
         </div>
     </div>
+
+    
     
 </body>
 </html>
