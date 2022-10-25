@@ -26,21 +26,23 @@ function addBookToPage() {
 
             book.onPage = true
 
-            newCard = document.createElement("div");
+            let newCard = document.createElement("div");
             libraryContent.appendChild(newCard);
             newCard.classList.add("bookCard");
 
-            cardTitle = document.createElement("h1");
-            cardAuthor = document.createElement("h2");
-            cardPages = document.createElement("p");
-            cardRead = document.createElement("p");
-            cardDelete = document.createElement("button");
+            let cardTitle = document.createElement("h1");
+            let cardAuthor = document.createElement("h2");
+            let cardPages = document.createElement("p");
+            let cardRead = document.createElement("p");
+            let cardDelete = document.createElement("button");
 
             newCard.appendChild(cardTitle);
             newCard.appendChild(cardAuthor);
             newCard.appendChild(cardPages);
             newCard.appendChild(cardRead);
             newCard.appendChild(cardDelete)
+
+            cardDelete.classList.add("delete")
 
             cardTitle.textContent = book.title;
             cardAuthor.textContent = `By: ${book.author}`;
@@ -58,6 +60,21 @@ function addBookToPage() {
             cardDelete.addEventListener("click", function(){
                 removeBookFromLibrary(book);
             });
+
+            if (book.read === false) {
+                cardNowRead = document.createElement("button");
+                newCard.appendChild(cardNowRead);
+                cardNowRead.classList.add("readToggle")
+                cardNowRead.textContent = "Read yet?"
+
+                cardNowRead.addEventListener("click", () => {
+                    console.log("hey")
+                    newCard.classList.remove("bookHasNotRead")
+                    newCard.classList.add("bookHasRead")
+
+                    cardNowRead.classList.add("dontDisplay")
+                })
+            }
         }   
     });
 };
