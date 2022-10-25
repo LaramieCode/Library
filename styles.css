@@ -180,7 +180,8 @@
     border: none;
     border-radius: 20px;
     background-color: var(--zinc-700);
-    /* margin-right: 25%; */
+    color: white;
+    padding-left: 10px;
 }
 
 .rowThree {
@@ -213,6 +214,8 @@
     border: none;
     border-radius: 20px;
     background-color: var(--zinc-700);
+    color: white;
+    padding-left: 10px;
 }
 
 .bookRead {
@@ -263,6 +266,11 @@
     border: 2px solid var(--green-800);
     background-color: var(--green-700);
     color: var(--green-900);
+}
+
+input:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 5px;
 }
 
 
