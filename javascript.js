@@ -1,6 +1,7 @@
 let libraryContent = document.querySelector(".libraryContent");
 const addBookBtn = document.querySelector(".addBook");
 const bookFormContainer = document.querySelector(".formContainer")
+const submitBook = document.querySelector("#submitBook")
 
 let myLibrary = [];
 
@@ -17,6 +18,9 @@ function addBookToLibrary(title, author, pages, read) {
 };
 
 function addBookToPage() {
+
+    document.querySelectorAll(".bookCard").forEach(function(e) {e.remove()})
+
     myLibrary.forEach((book) => {
         newCard = document.createElement("div");
         libraryContent.appendChild(newCard);
@@ -33,14 +37,14 @@ function addBookToPage() {
         newCard.appendChild(cardRead);
 
         cardTitle.textContent = book.title;
-        cardAuthor.textContent = book.author;
-        cardPages.textContent = book.pages;
+        cardAuthor.textContent = `By: ${book.author}`;
+        cardPages.textContent = `${book.pages} Pages`;
         if (book.read === true) {
-            cardRead.textContent = "Read"
+            cardRead.textContent = "Have Read"
             newCard.classList.add("bookHasRead")
         }
         if (book.read === false) {
-            cardRead.textContent = "not Read"
+            cardRead.textContent = "Have not Read"
             newCard.classList.add("bookHasRead")
         }        
     });
@@ -49,8 +53,17 @@ function addBookToPage() {
 addBookBtn.addEventListener("click", function() {
     bookFormContainer.classList.toggle("dontDisplay")
     libraryContent.classList.toggle("dontDisplay")
-})
+});
 
-addBookToLibrary("The Hobbit", "J.R.R Tolkien", 296, true);
+submitBook.addEventListener("click", function() {
+    let formData = document.querySelectorAll(".addBookForm input")
+
+    if (formData[3].checked) {addBookToLibrary(formData[0].value, formData[1].value, formData[2].value, true)}
+    if (formData[4].checked) {addBookToLibrary(formData[0].value, formData[1].value, formData[2].value, false)}
+
+    addBookToPage()
+});
+
+addBookToLibrary("The Hobbit", "J.R.R Tolkien", "296", true);
 
 addBookToPage()
