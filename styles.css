@@ -15,6 +15,9 @@
     --green-800: #166534;
     --green-900: #14532d;
     --red-600: #dc2626;
+    --red-700: #b91c1c;    
+    --red-800: #991b1b;    
+    --red-900: #7f1d1d;
     --form-row-height: 60px;
 }
 
@@ -85,6 +88,7 @@
     gap: 8px;
     border-left: 8px solid var(--zinc-800);
     border-right: 8px solid var(--zinc-800);
+    position: relative;
 }
 
 .bookCard > h1 {
@@ -102,6 +106,22 @@
 
 .bookHasNotRead {
     border-left: 8px solid var(--red-600);
+}
+
+.bookCard > button {
+    width: 40%;
+    background-color: var(--red-600);
+    color: var(--red-800);
+    border: 2px solid var(--red-700);
+    border-radius: 8px;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+}
+.bookCard > button:active {
+    background-color: var(--red-700);
+    color: var(--red-900);
+    border: 2px solid var(--red-800);
 }
 
 .formContainer {

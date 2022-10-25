@@ -34,11 +34,13 @@ function addBookToPage() {
             cardAuthor = document.createElement("h2");
             cardPages = document.createElement("p");
             cardRead = document.createElement("p");
+            cardDelete = document.createElement("button");
 
             newCard.appendChild(cardTitle);
             newCard.appendChild(cardAuthor);
             newCard.appendChild(cardPages);
             newCard.appendChild(cardRead);
+            newCard.appendChild(cardDelete)
 
             cardTitle.textContent = book.title;
             cardAuthor.textContent = `By: ${book.author}`;
@@ -49,11 +51,30 @@ function addBookToPage() {
             }
             if (book.read === false) {
                 cardRead.textContent = "Have not Read"
-                newCard.classList.add("bookHasRead")
+                newCard.classList.add("bookHasNotRead")
             }
+            cardDelete.textContent = "Remove"
+
+            cardDelete.addEventListener("click", function(){
+                removeBookFromLibrary(book);
+            });
         }   
     });
 };
+
+function removeBookFromLibrary(book) {
+    let match = myLibrary.findIndex( (value) => {
+        return value === book
+    })
+    myLibrary.splice(match, 1)
+
+    removeBookFromPage(match)
+}
+
+function removeBookFromPage(match) {
+    pageBooks = document.querySelectorAll(".bookCard")
+    pageBooks[match].remove()
+}
 
 addBookBtn.addEventListener("click", function() {
     bookFormContainer.classList.toggle("dontDisplay")
@@ -70,5 +91,6 @@ submitBook.addEventListener("click", function() {
 });
 
 addBookToLibrary("The Hobbit", "J.R.R Tolkien", "296", true, false);
+addBookToLibrary("The Cat in the Hat", "Dr. Seuss", "61", false, false)
 
 addBookToPage()
