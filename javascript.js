@@ -117,6 +117,11 @@ class Book {
           newCard.classList.add("bookHasRead");
 
           cardNowRead.classList.add("dontDisplay");
+          cardRead.textContent = "Have Read";
+
+          console.log(book.read);
+          book.read = true;
+          console.log(book.read);
         });
       }
     });
